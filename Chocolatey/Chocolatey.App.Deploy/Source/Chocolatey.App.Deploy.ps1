@@ -20,6 +20,7 @@ Param(
     [string]$appName
 )
 
+#REGION Functions
 function Invoke-Process {
     [CmdletBinding(SupportsShouldProcess)]
     param
@@ -75,10 +76,15 @@ function Invoke-Process {
     }
 }
 
-#Check if 64bit and restart script under 64bit if necessary 
-if (![System.Environment]::Is64BitProcess) {
+#END REGION
 
-    # start new PowerShell as x64 bit process, wait for it and gather exit code and standard error output
+
+#Check if 64bit and restart script under 64bit if necessary 
+$exitCode = 0
+
+if (![System.Environment]::Is64BitProcess)
+{
+     # start new PowerShell as x64 bit process, wait for it and gather exit code and standard error output
     $sysNativePowerShell = "$($PSHOME.ToLower().Replace("syswow64", "sysnative"))\powershell.exe"
 
     $pinfo = New-Object System.Diagnostics.ProcessStartInfo
@@ -97,8 +103,7 @@ if (![System.Environment]::Is64BitProcess) {
     $stderr = $p.StandardError.ReadToEnd()
 
     if ($stderr) { Write-Error -Message $stderr }
-
-} 
+}
 
 Else {
     #Script region
@@ -141,3 +146,5 @@ Else {
     #endregion
     
 } #End Script region
+
+exit $exitCode
