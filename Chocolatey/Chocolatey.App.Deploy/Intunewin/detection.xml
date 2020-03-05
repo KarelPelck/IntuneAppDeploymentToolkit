@@ -1,0 +1,15 @@
+<ApplicationInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ToolVersion="1.4.0.0">
+  <Name>chocolatey.App.Deploy.intunewin</Name>
+  <UnencryptedContentSize>1647</UnencryptedContentSize>
+  <FileName>chocolatey.App.Deploy.intunewin</FileName>
+  <SetupFile>chocolatey.App.Deploy.ps1</SetupFile>
+  <EncryptionInfo>
+    <EncryptionKey>vjSWJD7Jwv4SUHScXEVJxhzfIRkDe/Yd245ebbyMhY4=</EncryptionKey>
+    <MacKey>gUan3iaBIP1SzmunQ9PkkPQxsGS8rhNtfPgGKSCg2KU=</MacKey>
+    <InitializationVector>0WVWgrX1LcTDMg5Gtxv0Og==</InitializationVector>
+    <Mac>hTPeSEJ8VHjjcRlBOfzAUz+jZeXBMY5mMPqEbMO7T5c=</Mac>
+    <ProfileIdentifier>ProfileVersion1</ProfileIdentifier>
+    <FileDigest>mrzHILFFqmxx0pGNsUyTaoCQhHXTGOoqKiuAXbjmrtM=</FileDigest>
+    <FileDigestAlgorithm>SHA256</FileDigestAlgorithm>
+  </EncryptionInfo>
+</ApplicationInfo>
