@@ -1151,6 +1151,7 @@ $appRoot = Split-Path $appConfig -Parent
 Test-AuthToken -user $script:user
 
 $sourceFile = "$appRoot\Intunewin\$($config.application.installFile.replace(".ps1",".intunewin"))"
+$sourceFile = "$appRoot\Intunewin\$($config.application.installFile.replace(".exe",".intunewin"))"
 #endregion
 
 #region set up the detection method
