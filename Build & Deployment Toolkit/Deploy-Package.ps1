@@ -1,8 +1,24 @@
+<#
+Version 1.0 
+Author: Karel Pelckmans
+Script: Deploy-Package.ps1
+
+Description: 
+Deploy an intunewin package based with configuration from a yaml file to intune.
+
+Release notes: 
+version 1.0: Original published version 
+
+Script provided As Is with no warranties. 
+#>
+
 param (
     [Parameter(Mandatory = $true)]
     [ValidateScript( { Test-Path $_ })]
     [System.IO.FileInfo]$appConfig,
-    $user
+    [Parameter(Mandatory = $true)]
+    [ValidateNotNull()]
+    [mailaddress]$user
 )
 #region load the functions
 <#
@@ -17,7 +33,7 @@ See LICENSE in the project root for license information.
 
 function Get-AuthToken {
 
-    <#
+<#
 .SYNOPSIS
 This function is used to authenticate with the Graph API REST interface
 .DESCRIPTION
@@ -1151,7 +1167,8 @@ $appRoot = Split-Path $appConfig -Parent
 Test-AuthToken -user $script:user
 
 $sourceFile = "$appRoot\Intunewin\$($config.application.installFile.replace(".ps1",".intunewin"))"
-$sourceFile = "$appRoot\Intunewin\$($config.application.installFile.replace(".exe",".intunewin"))"
+$sourceFile = $sourceFile.replace(".exe",".intunewin")
+$sourceFile = $sourceFile.replace(".msi",".intunewin")
 #endregion
 
 #region set up the detection method

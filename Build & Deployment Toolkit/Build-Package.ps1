@@ -1,4 +1,16 @@
+<#
+Version 1.0 
+Author: Karel Pelckmans
+Script: Build-Package.ps1
 
+Description: 
+Build an intunewin package based with configuration from a yaml file.
+
+Release notes: 
+version 1.0: Original published version 
+
+Script provided As Is with no warranties. 
+#>
 param (
     [Parameter(Mandatory = $true)]
     [ValidateScript( { Test-Path $_ })]
