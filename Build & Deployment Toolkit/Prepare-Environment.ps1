@@ -18,9 +18,48 @@ $modules = @(
     "AzureAD"
 )
 $win32CliUrl = "https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/raw/master/IntuneWinAppUtil.exe"
+$azCopyUri = "https://aka.ms/downloadazcopy-v10-windows"
 $binPath = "$PSScriptRoot\bin"
 $tempPath = "$PSScriptRoot\temp"
 #endregion
+
+#region Functions
+function Get-PreReq {
+    [cmdletbinding()]
+    param (
+        [parameter(Mandatory = $true)]
+        [System.Uri]$uri,
+
+        [parameter(Mandatory = $true)]
+        [string]$fileName,
+
+        [parameter(Mandatory = $true)]
+        [System.IO.FileInfo]$outputPath,
+
+        [parameter(Mandatory = $false)]
+        [switch]$extract
+    )
+    try {
+        if (!(Test-Path -Path "$outputPath\$fileName" -ErrorAction SilentlyContinue)) {
+            Start-BitsTransfer $uri -Destination "$outputPath\$fileName"
+            if (!(Test-Path -Path "$outputPath\$fileName" -ErrorAction SilentlyContinue)) {
+                throw "Couldn't find media after download.."
+            }
+            else {
+                if ($extract) {
+                    Expand-Archive -Path "$outputPath\$fileName" -DestinationPath $outputPath -Force
+                    Remove-Item -Path "$outputPath\$fileName" -Force | Out-Null
+                }
+            }
+        }
+    }
+    catch {
+        Write-Warning $_.exception.message
+    }
+}
+#endregion
+
+
 #region Install missing modules
 try {
     foreach ($m in $modules) {
@@ -32,7 +71,7 @@ try {
         }
     }
     #endregion
-    #region Install cli tool
+    #region Install cli tools
     if (!(Test-Path $binPath -ErrorAction SilentlyContinue)) {
         Write-Host "Creating the bin-folder and downloading the CLI Tool."
         New-Item $binPath -ItemType Directory -Force | out-null
@@ -65,7 +104,11 @@ try {
             Remove-Item $tempPath -Recurse -Force
         } 
     }
+
+    Get-PreReq -uri $azCopyUri -fileName "azCopy.zip" -outputPath "$PSSCriptRoot\bin" -extract
+    
     #endregion
+
 }
 catch {
     $errorMsg = $_.exception.message
