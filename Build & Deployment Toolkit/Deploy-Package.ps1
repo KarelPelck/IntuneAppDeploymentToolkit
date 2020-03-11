@@ -1003,7 +1003,9 @@ Write-Host $([system.text.encoding]::UTF8.GetString([system.convert]::FromBase64
 #endregion
 #region prep authentication and source file..
 Test-AuthToken -user $script:user
-$sourceFile = "$appRoot\Intunewin\$($config.application.appName)`.intunewin"
+$sourceFile = "$appRoot\Intunewin\$($config.application.installFile.replace(".ps1",".intunewin"))"
+$sourceFile = $sourceFile.replace(".exe",".intunewin")
+$sourceFile = $sourceFile.replace(".msi",".intunewin")
 #endregion
 
 #region set up the detection method

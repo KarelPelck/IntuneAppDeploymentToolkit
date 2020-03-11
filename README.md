@@ -1,6 +1,8 @@
 # IntuneAppDeploymentToolkit
 
 A toolset to help you package your win32 applications and deploy them to Intune!
+Witin this toolset a script with samples to package and deploy 3rd party applications from Chocolatey Package repository. 
+Chocolatey will keep your packaeges up to date by checking for updates when you boot up your device. 
 
 ## Why this repository
 

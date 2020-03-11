@@ -1,0 +1,28 @@
+application:
+  appName: "Adobe Reader Multi Language Version (MUI)"
+  publisher: "Adobe"
+  description: 'This app will Adobe reader!'
+  appUrl: ""
+  appFile: ""
+  unpack: false
+  installFile: "AcroRdrDC1901020064_MUI.exe"
+  installCmdLine: "AcroRdrDC1901020064_MUI.exe /sAll /msi /norestart /quiet ALLUSERS=1 EULA_ACCEPT=YES"
+  uninstallCmdLine: "msiexec /x '{AC76BA86-7AD7-FFFF-7B44-AC0F074E4100}' /qn"
+
+requirements:
+  runAs32: false
+  minOSArch: "v10_1809"
+
+detection:
+  detectionType: "file"
+  file:
+    path: 'C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\'
+    fileOrFolderName: "AcroRd32.exe"
+    fileDetectionType: "exists"
+    check32BitRegOn64System: false
+  registry:
+    registryKeyPath: ""
+    registryDetectionType: "exists"
+    check32BitRegOn64System: false
+  msi:
+    msiProductCode: ""
