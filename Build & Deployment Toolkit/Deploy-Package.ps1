@@ -1007,7 +1007,7 @@ $sourceFile = "$appRoot\Intunewin\$($config.application.installFile.replace(".ps
 $sourceFile = $sourceFile.replace(".exe",".intunewin")
 $sourceFile = $sourceFile.replace(".msi",".intunewin")
 #endregion
-
+write-host $script:azCopy
 #region set up the detection method
 switch ($config.detection.detectionType) {
     "file" {
