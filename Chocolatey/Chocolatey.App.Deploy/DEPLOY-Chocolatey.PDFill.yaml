@@ -1,5 +1,5 @@
 application:
-  appName: "PDFill"
+  appName: "PDFill (Chocolatey)"
   publisher: "PlotSoft"
   description: 'This app will install PDFill with Chocolatey!'
   appUrl: ""
