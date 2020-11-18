@@ -1,6 +1,6 @@
 application:
-  appName: "PDFSam (Chocolatey)"
-  publisher: "PDFSam"
+  appName: "PDFsam (Chocolatey)"
+  publisher: "PDFsam"
   description: 'This app will install PDFSam with Chocolatey!'
   appUrl: ""
   appFile: ""
