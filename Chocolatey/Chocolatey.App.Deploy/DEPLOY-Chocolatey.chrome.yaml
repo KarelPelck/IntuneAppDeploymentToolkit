@@ -14,7 +14,7 @@ requirements:
   minOSArch: "v10_1809"
 
 detection:
-  detectionType: "file"
+  detectionType: "msi"
   file:
     path: 'C:\Program Files (x86)\Google\Chrome\Application\'
     fileOrFolderName: "chrome.exe"
@@ -25,4 +25,4 @@ detection:
     registryDetectionType: "exists"
     check32BitRegOn64System: false
   msi:
-    msiProductCode: ""
+    msiProductCode: "{27AC56BA-489B-3BDF-98B8-AA1CE49ABB9F}"
