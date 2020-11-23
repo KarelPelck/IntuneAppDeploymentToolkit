@@ -1,0 +1,89 @@
+;
+; Generic 65C-9SeriesPCL Driver UNF-File for Win x64
+;
+; Copyright (C) 2003 KONICA MINOLTA, INC.
+
+[Version]
+Signature="$Windows NT$"
+Provider=%KM%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+CatalogFile=KOAXWJA_.CAT
+DriverVer=05/29/2017,9.1.16.0
+
+[DriverInfo]
+DriverName1=Generic 65C-9SeriesPCL
+DriverName2=Generic 36C-9SeriesPCL
+DriverName3=Generic 28C-8SeriesPCL
+DriverName5=Generic C MF385-2SeriesPCL
+DriverCode=0013
+
+[Uninstall.DriverName1]
+DelReg=Environment_Reg.DriverName1
+DelFiles=KOAXW_COPY,PRINT_MONITOR
+
+[Uninstall.DriverName2]
+DelReg=Environment_Reg.DriverName2
+DelFiles=KOAXW_COPY,PRINT_MONITOR
+
+[Uninstall.DriverName3]
+DelReg=Environment_Reg.DriverName3
+DelFiles=KOAXW_COPY,PRINT_MONITOR
+
+[Uninstall.DriverName5]
+DelReg=Environment_Reg.DriverName5
+DelFiles=KOAXW_COPY,PRINT_MONITOR
+
+[Environment_Reg.DriverName1]
+HKLM,"System\CurrentControlSet\Control\Print\Printers","StartOnBoot"
+HKCU,"SoftWare\Generic\Generic 65C-9SeriesPCL"
+
+[Environment_Reg.DriverName2]
+HKLM,"System\CurrentControlSet\Control\Print\Printers","StartOnBoot"
+HKCU,"SoftWare\Generic\Generic 36C-9SeriesPCL"
+
+[Environment_Reg.DriverName3]
+HKLM,"System\CurrentControlSet\Control\Print\Printers","StartOnBoot"
+HKCU,"SoftWare\Generic\Generic 28C-8SeriesPCL"
+
+[Environment_Reg.DriverName5]
+HKLM,"System\CurrentControlSet\Control\Print\Printers","StartOnBoot"
+HKCU,"SoftWare\Generic\Generic C MF385-2SeriesPCL"
+
+[KOAXW_COPY]
+KOAXWJAB.DLL,,,1
+KOAXWJAC.DLL,,,1
+KOAXWJAD.DLL,,,1
+KOAXWJAE.DLL,,,1
+KOAXWJAF.DLL,,,1
+KOAXWJAG.DLL,,,1
+KOAXWJAJ.DLL,,,1
+KOAXWJAM.DLL,,,1
+KOAXWJAN.DLL,,,1
+KOAXWJAO.DLL,,,1
+KOAXWJAR.DLL,,,1
+KOAXWJAS.DLL,,,1
+KOAXWJAU.DLL,,,1
+KOAXWJAW.DLL,,,1
+KOAXWJAX.DLL,,,1
+KOAXWJAC.KPD
+KOAXWJAD.KPD
+KOAXWJAM.KPD
+KOAXWJA_.KPD
+KOAXWJA_.CHM,,,1
+KOAXWJA_.UNF
+KOAXWJAA.KMP
+KOAXWJAB.KMP
+KOAXWJAC.KMP
+KOAXWJAD.KMP
+
+[PRINT_MONITOR]
+KOAXWJAL.DLL,,,1
+
+[DestinationDirs]
+DefaultDestDir=66000
+PRINT_MONITOR=66002
+
+[Strings]
+KM="Generic"
+DiskName="Generic 65C-9Series Driver Disk"
