@@ -934,7 +934,8 @@ function Publish-Win32Lob {
             Send-FileToAzureStorage -sasUri $sasUri -filePath "$IntuneWinFile"
         }
         # Need to Add removal of IntuneWin file
-        Remove-Item "$(split-path $IntuneWinFile -Parent)" -Recurse -Force
+        Move-Item "$(split-path $IntuneWinFile -Parent)" C:\toremove\ -force
+        Remove-Item C:\toremove\ -Recurse -Force
         #Remove-Item "$IntuneWinFile" -Force
         # Commit the file.
         Start-Sleep -Seconds 5
