@@ -1,0 +1,62 @@
+;
+; C MF385-1 Series PCL6 Driver UNF-File for x64
+;
+; Copyright(C) 2012 KONICA MINOLTA, INC.
+
+[Version]
+Signature="$Windows NT$"
+Provider=%KM%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+CatalogFile.ntamd64=KOBJ_JA_.CAT
+DriverVer=12/01/2018,3.2.0.0
+
+[DriverInfo]
+DriverName=C MF385-1 Series PCL6
+DriverCode=0009
+
+[Uninstall]
+DelReg=Environment_Reg
+DelFiles=KOBJ__COPY,KOBJ__MONITOR
+
+[Environment_Reg]
+HKLM,"System\CurrentControlSet\Control\Print\Printers","StartOnBoot"
+HKCU,"SoftWare\MFP-Printer Utility\C MF385-1 Series PCL6"
+
+[KOBJ__COPY]
+KOBJ_JAG.DLL,,,1
+KOBJ_JAX.DLL,,,1
+KOBJ_JAF.DLL,,,1
+KOBJ_JAC.DLL,,,1
+KOBJ_JAU.DLL,,,1
+KOBJ_JAS.DLL,,,1
+KOBJ_JAR.DLL,,,1
+KOBJ_JAJ.DLL,,,1
+KOBJ_JAD.DLL,,,1
+KOBJ_JAW.DLL,,,1
+KOBJ_JAM.DLL,,,1
+KOBJ_JAO.DLL,,,1
+KOBJ_JAN.DLL,,,1
+KOBJ_JAC.KPD
+KOBJ_JAD.KPD
+KOBJ_JAM.KPD
+KOBJ_JA_.KPD
+KOBJ_JA_.CNT
+KOBJ_JA_.HLP
+KOBJ_JA_.chm,,,1
+KOBJ_JA_.unf
+KOBJ_JAA.kmp
+KOBJ_JAB.kmp
+KOBJ_JAC.kmp
+KOBJ_JA_.GID,,,1
+
+[KOBJ__MONITOR]
+KOBJ_JAL.DLL,,,1
+
+[DestinationDirs]
+DefaultDestDir=66000
+KOBJ__MONITOR=66002
+
+[Strings]
+KM="Generic"
+DiskName="C MF385-1 Series PCL6 Driver Disk"

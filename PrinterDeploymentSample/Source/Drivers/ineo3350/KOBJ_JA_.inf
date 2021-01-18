@@ -1,0 +1,115 @@
+;
+; C MF385-1 Series PCL6 Driver INF-File for x64
+;
+; Copyright(C) 2012 KONICA MINOLTA, INC.
+
+[Version]
+Signature="$Windows NT$"
+Provider=%KM%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+DriverIsolation=2
+CatalogFile.ntamd64=KOBJ_JA_.CAT
+DriverVer=12/01/2018,3.2.0.0
+
+[Manufacturer]
+%KM%=GENERIC, NTamd64, NTamd64.6.0
+
+[GENERIC.NTamd64]
+"C MF385-1 Series PCL6" = KOBJ_JAG.DLL.NTamd64, USBPRINT\GenericC_MF385-1_SerF304,GenericC_MF385-1_SerF304
+
+[GENERIC.NTamd64.6.0]
+"C MF385-1 Series PCL6" = KOBJ_JAG.DLL.NTamd64.6.0, USBPRINT\GenericC_MF385-1_SerF304,GenericC_MF385-1_SerF304
+
+[KOBJ_JAG.DLL.NTamd64]
+CopyFiles=KOBJ__COPY,KOBJ__MONITOR
+DataSection=KOBJ__DATA
+HelpFile=KOBJ_JA_.HLP
+
+[KOBJ_JAG.DLL.NTamd64.6.0]
+CopyFiles=KOBJ__COPY,KOBJ__MONITOR
+DataSection=KOBJ__DATA
+LanguageMonitor="C MF385-1 Series PCL6 Language Monitor,KOBJ_JAL.dll"
+HelpFile=KOBJ_JA_.chm
+
+[PrinterPackageInstallation.amd64]
+PackageAware=TRUE
+
+[KOBJ__COPY]
+KOBJ_JAG.DLL
+KOBJ_JAX.DLL
+KOBJ_JAF.DLL
+KOBJ_JAC.DLL
+KOBJ_JAU.DLL
+KOBJ_JAS.DLL
+KOBJ_JAR.DLL
+KOBJ_JAJ.DLL
+KOBJ_JAD.DLL
+KOBJ_JAW.DLL
+KOBJ_JAM.DLL
+KOBJ_JAO.DLL
+KOBJ_JAN.DLL
+KOBJ_JAC.KPD
+KOBJ_JAD.KPD
+KOBJ_JAM.KPD
+KOBJ_JA_.KPD
+KOBJ_JA_.CNT
+KOBJ_JA_.HLP
+KOBJ_JA_.chm
+KOBJ_JA_.unf
+KOBJ_JAA.kmp
+KOBJ_JAB.kmp
+KOBJ_JAC.kmp
+
+[KOBJ__MONITOR]
+KOBJ_JAL.DLL
+
+[KOBJ__DATA]
+DriverFile=KOBJ_JAG.DLL
+ConfigFile=KOBJ_JAC.DLL
+DataFile=KOBJ_JAG.DLL
+
+[DestinationDirs]
+DefaultDestDir=66000
+KOBJ__MONITOR=66002
+
+[SourceDisksNames.amd64]
+9=%DiskName%,,
+
+[SourceDisksFiles.amd64]
+KOBJ_JAG.DLL = 9
+KOBJ_JAX.DLL = 9
+KOBJ_JAF.DLL = 9
+KOBJ_JAC.DLL = 9
+KOBJ_JAU.DLL = 9
+KOBJ_JAS.DLL = 9
+KOBJ_JAR.DLL = 9
+KOBJ_JAJ.DLL = 9
+KOBJ_JAD.DLL = 9
+KOBJ_JAW.DLL = 9
+KOBJ_JAM.DLL = 9
+KOBJ_JAO.DLL = 9
+KOBJ_JAL.DLL = 9
+KOBJ_JAN.DLL = 9
+KOBJ_JAC.KPD = 9
+KOBJ_JAD.KPD = 9
+KOBJ_JAM.KPD = 9
+KOBJ_JA_.KPD = 9
+KOBJ_JA_.CNT = 9
+KOBJ_JA_.HLP = 9
+KOBJ_JA_.chm = 9
+KOBJ_JA_.unf = 9
+KOBJ_JAA.kmp = 9
+KOBJ_JAB.kmp = 9
+KOBJ_JAC.kmp = 9
+
+[OEM URLS]
+%KM%=""
+
+[Strings]
+KM="Generic"
+DiskName="C MF385-1 Series PCL6 Driver Disk"
+
+[Strings.0009]
+KM="Generic"
+DiskName="C MF385-1 Series PCL6 Driver Disk"

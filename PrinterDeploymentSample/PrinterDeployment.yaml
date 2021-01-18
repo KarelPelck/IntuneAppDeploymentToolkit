@@ -1,0 +1,28 @@
+application:
+  appName: "Fevia Printers"
+  publisher: "Synergics"
+  description: 'This app will deploy the Fevia Printers!'
+  appUrl: ""
+  appFile: ""
+  unpack: false
+  installFile: "InstallPrinter.ps1"
+  installCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./InstallPrinter.ps1\""
+  uninstallCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./InstallPrinter.ps1\""
+
+requirements:
+  runAs32: false
+  minOSArch: "v10_1809"
+
+detection:
+  detectionType: "registry"
+  file:
+    path: 'C:\ProgramData\chocolatey\'
+    fileOrFolderName: "choco.exe"
+    fileDetectionType: "exists"
+    check32BitRegOn64System: false
+  registry:
+    registryKeyPath: 'Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print\Printers\Develop Ineo+ 3350'
+    registryDetectionType: "exists"
+    check32BitRegOn64System: false
+  msi:
+    msiProductCode: ""
