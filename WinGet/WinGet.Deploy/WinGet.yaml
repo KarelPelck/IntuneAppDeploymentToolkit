@@ -1,0 +1,28 @@
+application:
+  appName: "WinGet Upgrade All"
+  publisher: "ShellBlazer"
+  description: 'This app will run the Winget Upgrade --all command!'
+  appUrl: ""
+  appFile: ""
+  unpack: false
+  installFile: "WinGet.ps1"
+  installCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./WinGet.ps1 -mode Install -At 12:05pm\""
+  uninstallCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./WinGet.ps1 -mode Uninstall\""
+
+requirements:
+  runAs32: false
+  minOSArch: "v10_1809"
+
+detection:
+  detectionType: "Registry"
+  file:
+    path: 'C:\ProgramData\'
+    fileOrFolderName: ""
+    fileDetectionType: "exists"
+    check32BitRegOn64System: false
+  registry:
+    registryKeyPath: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree\WinGet Upgrade All"
+    registryDetectionType: "exists"
+    check32BitRegOn64System: false
+  msi:
+    msiProductCode: ""

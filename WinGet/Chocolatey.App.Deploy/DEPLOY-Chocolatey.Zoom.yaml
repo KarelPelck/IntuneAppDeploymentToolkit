@@ -1,0 +1,28 @@
+application:
+  appName: "Zoom (Chocolatey)"
+  publisher: "Zoom"
+  description: 'This app will install Zoom with Chocolatey!'
+  appUrl: ""
+  appFile: ""
+  unpack: false
+  installFile: "chocolatey.App.Deploy.ps1"
+  installCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./chocolatey.App.Deploy.ps1 -mode Install -appName 'zoom'\""
+  uninstallCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./chocolatey.App.Deploy.ps1 -mode Uninstall -appName 'zoom'\""
+
+requirements:
+  runAs32: false
+  minOSArch: "v10_1809"
+
+detection:
+  detectionType: "file"
+  file:
+    path: 'C:\Program Files (x86)\Zoom\bin\'
+    fileOrFolderName: "Zoom.exe"
+    fileDetectionType: "exists"
+    check32BitRegOn64System: false
+  registry:
+    registryKeyPath: ""
+    registryDetectionType: "exists"
+    check32BitRegOn64System: false
+  msi:
+    msiProductCode: ""

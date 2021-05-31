@@ -1,0 +1,28 @@
+application:
+  appName: "Visual Studio Code (Chocolatey)"
+  publisher: "Microsoft"
+  description: 'This app will install Visual Studio Code with Chocolatey!'
+  appUrl: ""
+  appFile: ""
+  unpack: false
+  installFile: "chocolatey.App.Deploy.ps1"
+  installCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./chocolatey.App.Deploy.ps1 -mode Install -appName 'vscode vscode-icons vscode-csharpextensions vscode-powershell'\""
+  uninstallCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./chocolatey.App.Deploy.ps1 -mode Uninstall -appName 'vscode vscode-icons vscode-csharpextensions vscode-powershell'\""
+
+requirements:
+  runAs32: false
+  minOSArch: "v10_1809"
+
+detection:
+  detectionType: "file"
+  file:
+    path: 'C:\Program Files\Microsoft VS Code\'
+    fileOrFolderName: "Code.exe"
+    fileDetectionType: "exists"
+    check32BitRegOn64System: false
+  registry:
+    registryKeyPath: ""
+    registryDetectionType: "exists"
+    check32BitRegOn64System: false
+  msi:
+    msiProductCode: ""

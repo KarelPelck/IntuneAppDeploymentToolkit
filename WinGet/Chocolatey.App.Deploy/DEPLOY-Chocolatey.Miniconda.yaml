@@ -1,0 +1,28 @@
+application:
+  appName: "Miniconda 4.8.3 (Chocolatey)"
+  publisher: "Conda"
+  description: 'This app will install Miniconda 4.8.3 with Chocolatey!'
+  appUrl: ""
+  appFile: ""
+  unpack: false
+  installFile: "chocolatey.App.Deploy.ps1"
+  installCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./chocolatey.App.Deploy.ps1 -mode Install -appName 'miniconda3'\""
+  uninstallCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./chocolatey.App.Deploy.ps1 -mode Uninstall -appName 'miniconda3'\""
+
+requirements:
+  runAs32: false
+  minOSArch: "v10_1809"
+
+detection:
+  detectionType: "file"
+  file:
+    path: 'C:\tools\miniconda3\'
+    fileOrFolderName: "_conda.exe"
+    fileDetectionType: "exists"
+    check32BitRegOn64System: false
+  registry:
+    registryKeyPath: ""
+    registryDetectionType: "exists"
+    check32BitRegOn64System: false
+  msi:
+    msiProductCode: ""

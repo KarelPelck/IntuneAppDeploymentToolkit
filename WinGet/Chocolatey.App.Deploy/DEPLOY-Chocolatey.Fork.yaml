@@ -1,0 +1,28 @@
+application:
+  appName: "Fork (Chocolatey)"
+  publisher: "Fork"
+  description: 'This app will install Fork with Chocolatey!'
+  appUrl: ""
+  appFile: ""
+  unpack: false
+  installFile: "chocolatey.App.Deploy.ps1"
+  installCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./chocolatey.App.Deploy.ps1 -mode Install -appName 'git-fork'\""
+  uninstallCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./chocolatey.App.Deploy.ps1 -mode Uninstall -appName 'git-fork'\""
+
+requirements:
+  runAs32: false
+  minOSArch: "v10_1809"
+
+detection:
+  detectionType: "file"
+  file:
+    path: '%localappdata%\Fork\'
+    fileOrFolderName: "Fork.exe"
+    fileDetectionType: "exists"
+    check32BitRegOn64System: false
+  registry:
+    registryKeyPath: ""
+    registryDetectionType: "exists"
+    check32BitRegOn64System: false
+  msi:
+    msiProductCode: ""

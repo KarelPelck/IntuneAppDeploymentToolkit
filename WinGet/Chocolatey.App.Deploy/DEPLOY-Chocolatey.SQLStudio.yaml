@@ -1,0 +1,28 @@
+application:
+  appName: "SQL Server Management Studio (Chocolatey)"
+  publisher: "SQL Server Management Studio"
+  description: 'This app will install SQL Server Management Studio with Chocolatey!'
+  appUrl: ""
+  appFile: ""
+  unpack: false
+  installFile: "chocolatey.App.Deploy.ps1"
+  installCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./chocolatey.App.Deploy.ps1 -mode Install -appName SQL-Server-Management-Studio\""
+  uninstallCmdLine: "%windir%\\sysnative\\windowspowershell\\v1.0\\powershell.exe -ExecutionPolicy bypass \"./chocolatey.App.Deploy.ps1 -mode Uninstall -appName SQL-Server-Management-Studio\""
+
+requirements:
+  runAs32: false
+  minOSArch: "v10_1809"
+
+detection:
+  detectionType: "file"
+  file:
+    path: 'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\Binn\'
+    fileOrFolderName: "sqlservr.exe"
+    fileDetectionType: "exists"
+    check32BitRegOn64System: false
+  registry:
+    registryKeyPath: ""
+    registryDetectionType: "exists"
+    check32BitRegOn64System: false
+  msi:
+    msiProductCode: ""
